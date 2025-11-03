@@ -115,7 +115,7 @@ export function Contact() {
                   </div>
                   <div>
                     <p className="text-gray-900 dark:text-white mb-1 text-sm sm:text-base">{t.contact.emailLabel}</p>
-                    <a href="mailto:hilkija@example.com" className="text-blue-600 dark:text-blue-400 hover:underline text-xs sm:text-sm">
+                    <a href="mailto:kriskash9@gmail.com" className="text-blue-600 dark:text-blue-400 hover:underline text-xs sm:text-sm">
                       hilkija@example.com
                     </a>
                   </div>

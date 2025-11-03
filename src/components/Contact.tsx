@@ -27,8 +27,8 @@ export function Contact() {
 
   emailjs
     .send(
-      "service_dipj95f",   // replace
-      "template_sig1m3d",  // replace
+      "service_z5vyjf6",   // replace
+      "template_08v1nqh",  // replace
       templateParams,
       "kNfwRujr3ETwT6fAW"    // replace
     )

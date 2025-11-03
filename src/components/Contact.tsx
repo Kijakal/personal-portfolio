@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { Mail, Linkedin, Github, Youtube, Send, MapPin } from "lucide-react";
 import { toast } from "sonner@2.0.3";
 import { useLanguage } from "../contexts/LanguageContext";
+import emailjs from "emailjs-com";
 
 export function Contact() {
   const { t } = useLanguage();
@@ -16,10 +17,33 @@ export function Contact() {
   });
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast.success(t.contact.successMessage);
-    setFormData({ name: "", email: "", message: "" });
+  e.preventDefault();
+
+  const templateParams = {
+    from_name: formData.name,
+    from_email: formData.email,
+    message: formData.message,
   };
+
+  emailjs
+    .send(
+      "service_dipj95f",   // replace
+      "template_sig1m3d",  // replace
+      templateParams,
+      "kNfwRujr3ETwT6fAW"    // replace
+    )
+    .then(
+      () => {
+        toast.success(t.contact.successMessage || "✅ Message sent successfully!");
+        setFormData({ name: "", email: "", message: "" });
+      },
+      (error) => {
+        console.error("EmailJS Error:", error);
+        toast.error("❌ Failed to send message. Please try again.");
+      }
+    );
+};
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({

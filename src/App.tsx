@@ -11,12 +11,14 @@ import { Expertise } from "./components/Expertise";
 import { Experience } from "./components/Experience";
 import { Skills } from "./components/Skills";
 import { Contact } from "./components/Contact";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function App() {
   useEffect(() => {
-    // Load Google Fonts
+    // Load Google Fonts dynamically
     const link = document.createElement("link");
-    link.href = "https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap";
+    link.href =
+      "https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap";
     link.rel = "stylesheet";
     document.head.appendChild(link);
   }, []);
@@ -28,7 +30,7 @@ export default function App() {
           <ScrollProgress />
           <ThemeToggle />
           <LanguageToggle />
-          
+
           <main>
             <Hero />
             <About />
@@ -39,6 +41,7 @@ export default function App() {
           </main>
 
           <Toaster position="bottom-right" />
+          <Analytics /> {/* Added analytics tracking here */}
         </div>
       </LanguageProvider>
     </ThemeProvider>
